@@ -3,7 +3,7 @@
     mapping(address => uint) public balanceOf;
     
     uint public priceWeiPerToken = 10;
-    
+    event tokensIssued(address buyer, uint buyAmount, uint time);
     address public owner;
     
     function ICO() {
@@ -26,6 +26,7 @@
     
     function buyToken() payable {
         balanceOf[msg.sender] += msg.value / priceWeiPerToken ;
+        tokensIssued(msg.sender, msg.value / priceWeiPerToken, now);
     } 
     
     function payOutBalance() {
