@@ -29,10 +29,14 @@
 
             // Now you can start your app & access web3 freely:
             var contractAddress = "0xF5A1543FD8c29c4538F57ABcd747abeFF4d74a3F";
+            $("#contractAdress").text(contractAdress);
                 
-                //MY metamask address - ropsten test net 0xb33277b20E35e4682056833048448C721E6c96AC
+             web3.eth.getBalance(contractAdress, function(err,res){
+             $("#contractBalance").text(res);
+             })
+             //metamask address - ropsten test net 0xb33277b20E35e4682056833048448C721E6c96AC
             // do whatever you want to here!
-
+            
             })
         </script>
     </body>
